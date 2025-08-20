@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - GearSneak</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #000000, #1a1a1a, #2b2b2b);
+    }
+
+    .register-container {
+      width: 380px;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+      color: #fff;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .register-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #ff2e2e;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 1.2rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 40px 12px 15px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .input-group input::placeholder {
+      color: #aaa;
+    }
+
+    .input-group i {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #bbb;
+      cursor: pointer;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #ff2e2e;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff4545;
+      box-shadow: 0 0 12px #ff2e2e;
+    }
+
+    .extra-links {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .extra-links a {
+      color: #ff2e2e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .extra-links a:hover {
+      text-decoration: underline;
+    }
+
+    #errorMsg {
+      color: #ff8080;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Create Account GSNEAK</h2>
+    <form id="registerForm">
+      <div id="errorMsg">🤣Passwords do not match</div>
+      <div class="input-group">
+        <input type="text" id="username" placeholder="Username" required>
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <div class="input-group">
+        <input type="email" id="email" placeholder="Email" required>
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" placeholder="Password" required>
+        <i class="fa-solid fa-eye" id="togglePassword"></i>
+      </div>
+      <div class="input-group">
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <i class="fa-solid fa-eye" id="toggleConfirm"></i>
+      </div>
+      <button type="submit" class="btn">Register</button>
+      <div class="extra-links">
+        Already have an account? <a href="login.html">Login here</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const togglePassword = document.getElementById("togglePassword");
+    const password = document.getElementById("password");
+    togglePassword.addEventListener("click", () => {
+      password.type = password.type === "password" ? "text" : "password";
+      togglePassword.classList.toggle("fa-eye-slash");
+    });
+
+    const toggleConfirm = document.getElementById("toggleConfirm");
+    const confirmPassword = document.getElementById("confirmPassword");
+    toggleConfirm.addEventListener("click", () => {
+      confirmPassword.type = confirmPassword.type === "password" ? "text" : "password";
+      toggleConfirm.classList.toggle("fa-eye-slash");
+    });
+
+    const form = document.getElementById("registerForm");
+    const errorMsg = document.getElementById("errorMsg");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      if (password.value !== confirmPassword.value) {
+        errorMsg.style.display = "block";
+      } else {
+        errorMsg.style.display = "none";
+
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        if (users.find(u => u.username === username.value)) {
+          alert("Username already exists. Choose another one.");
+          return;
+        }
+
+        users.push({
+          username: username.value,
+          email: email.value,
+          password: password.value
+        });
+
+        localStorage.setItem("users", JSON.stringify(users));
+
+        alert("🤞🏻Account created successfully!");
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+</body>
+</html>

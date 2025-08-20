@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <title>GEARSNEAK STORE</title>
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />    
+    </head>
+
+
+<body>
+
+<header>
+  <div id="menu-bar" class="fa-solid fa-bars"></div>
+
+  <a data-aos="fade-down" data-aos-duration="1500" href="#" class="sneaker">GEARSNEAK</a>
+
+  <nav class="navbar">
+    <a href="home.html">Home</a>     
+    <a href="product.html">Product</a>
+    <a href="featured.html">Featured</a>
+    <a href="review.html">Review</a>
+  </nav>
+  
+  <div class="icons">
+    <a href="#"><i class="fa-solid fa-truck-fast"></i></a>
+    <a href="#"><i class="fa fa-shopping-cart"></i></a>
+    <a href="#" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i></a>
+  </div>
+</header>
+
+<section class="products">
+  <div class="product-grid">
+
+    <div class="product-card">
+      <div class="icon-overlay">
+        <i class="fa-regular fa-heart"></i>
+        <i class="fa-solid fa-share-nodes"></i>
+      </div>
+      <img src="shoes.png" class="product-image" alt="Hippie">
+      <div class="product-info">
+        <h3 class="product-title">Hippie</h3>
+        <p class="product-price">Php 7,999</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="icon-overlay">
+        <i class="fa-regular fa-heart"></i>
+        <i class="fa-solid fa-share-nodes"></i>
+      </div>
+      <img src="shoes1.png" class="product-image" alt="Hippie2">
+      <div class="product-info">
+        <h3 class="product-title">Hippie2</h3>
+        <p class="product-price">Php 10,999</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="icon-overlay">
+        <i class="fa-regular fa-heart"></i>
+        <i class="fa-solid fa-share-nodes"></i>
+      </div>
+      <img src="shoes2.png" class="product-image" alt="Crater">
+      <div class="product-info">
+        <h3 class="product-title">Crater</h3>
+        <p class="product-price">Php 4,999</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="icon-overlay">
+        <i class="fa-regular fa-heart"></i>
+        <i class="fa-solid fa-share-nodes"></i>
+      </div>
+      <img src="shoes3.png" class="product-image" alt="Hippie2">
+      <div class="product-info">
+        <h3 class="product-title">Hippie2</h3>
+        <p class="product-price">Php 10,999</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="icon-overlay">
+        <i class="fa-regular fa-heart"></i>
+        <i class="fa-solid fa-share-nodes"></i>
+      </div>
+      <img src="shoes4.png" class="product-image" alt="Hippie2">
+      <div class="product-info">
+        <h3 class="product-title">Hippie2</h3>
+        <p class="product-price">Php 10,999</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>GearSneaker</h3>
+      <p>Dark-theme premium fashion</p>
+    </div>
+
+    <div class="footer-section footer-center">
+      <h3>Collections</h3>
+      <ul class="footer-link">
+        <li>Men's</li>
+        <li>Women's</li>
+        <li>Accessories</li>
+        <li>Limited Edition</li>
+      </ul>
+    </div>
+
+    <div class="footer-section footer-end">
+      <h3>SOCIAL CONTACT</h3>
+      <div class="social-icons">    
+        <a href="https://x.com/roohyoon" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a href="https://web.facebook.com/Dinrmain" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/dinnnnmr/" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://github.com/marcsj78-code" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.48/build/spline-viewer.js"></script>
+  <spline-viewer class="robot-3d" url="https://prod.spline.design/JqpMqW0lYnx92mUc/scene.splinecode"></spline-viewer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+  AOS.init();
+  </script>
+
+  <script src="script.js"></script>
+
+  <script>
+    if(localStorage.getItem("isLoggedIn") !== "true"){
+      window.location.href = "login.html";
+    }
+ 
+    function logout(){
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("username");
+      window.location.href = "login.html";
+    }
+    </script>
+
+  </body>
+  </html>

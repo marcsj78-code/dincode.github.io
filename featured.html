@@ -4,17 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GearSneak</title>
-
-  <!-- External CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="featured.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />    
 </head>
-
+      
 <body>
   <header>
     <div id="menu-bar" class="fa-solid fa-bars"></div>
-    
     <a class="sneaker" data-aos="fade-down" data-aos-duration="1500">GEARSNEAK</a>
     
     <nav class="navbar"> 
@@ -26,32 +23,33 @@
     
     <div class="icons">
       <a href="#" data-aos="fade-down" data-aos-duration="2000"><i class="fa-solid fa-truck-fast"></i></a>
-      <a href="#" data-aos="fade-down" data-aos-duration="2500"><i class="fa fa-shopping-cart"></i></a>
+      <a href="#" data-aos="fade-down" data-aos-duration="2500"><i class="fa fa-shopping-cart"></i></a>  
       <a href="#" onclick="logout()" data-aos="fade-right" data-aos-duration="3000"><i class="fa-solid fa-right-from-bracket"></i></a>
     </div>
   </header>
 
   <section id="home">
     <div class="content">
-      <p data-aos="fade-up" data-aos-duration="1000">Welcome to GearSneak</p>  
+      <p data-aos="fade-up" data-aos-duration="1000">SHHHHHHHHHHHHHHHHHHHHH!</p>
+      <h2 id="welcomeUser" data-aos="fade-up" data-aos-duration="1200"></h2>
     </div>
   </section>
-  
 
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.45/build/spline-viewer.js"></script>
+
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.48/build/spline-viewer.js"></script>
   <spline-viewer 
     class="robot-3d" 
-    url="https://prod.spline.design/7k0reIDL7f2bdc3d/scene.splinecode">
-  </spline-viewer> 
+    url="https://prod.spline.design/oqBgYzZwmgmqJAMM/scene.splinecode">
+  </spline-viewer>  
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
-  </script>
+    </script>\
 
-  <script src="script.js"></script>
+     <script src="script.js"></script>
 
-  <script>
+    <script>
     if(localStorage.getItem("isLoggedIn") !== "true"){
       window.location.href = "login.html";
     }
@@ -61,6 +59,7 @@
       localStorage.removeItem("username");
       window.location.href = "login.html";
     }
-  </script>
+    </script>
 </body>
 </html>
+
